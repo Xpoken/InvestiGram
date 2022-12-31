@@ -1,0 +1,114 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+;(function($){
+	"use strict";
+
+	$(document).ready(function() {
+
+		var enable_ios_slider = function( content ){
+
+			function slideChange(args) {
+				var theSlider = $(args.sliderObject),
+					activeSlide = args.currentSlideNumber - 1,
+					sliderContainer = theSlider.closest('.iosslider-slideshow');
+				// console.log(args);
+				// add active to bullets
+				sliderContainer.find('.kl-ios-selectors-block .iosslider__bull-item').removeClass('selected');
+				sliderContainer.find('.kl-ios-selectors-block .iosslider__bull-item:eq(' + activeSlide + ')').addClass('selected');
+				// add active class
+				theSlider.find('.iosslider__item').removeClass('kl-iosslider-active');
+				theSlider.find('.iosslider__item:eq(' + activeSlide + ')').addClass('kl-iosslider-active');
+			}
+
+			function sliderLoaded(args, otherSettings) {
+				var theSlider = $(args.sliderObject);
+				if (otherSettings.hideControls) theSlider.addClass('hideControls');
+				if (otherSettings.hideCaptions) theSlider.addClass('hideCaptions');
+
+				if(typeof( args.currentSlideNumber ) != 'undefined') {
+					slideChange(args);
+				}
+				theSlider.closest('.iosslider-slideshow').addClass('kl-slider-loaded');
+			}
+
+			var elements = content.find('.iosSlider');
+
+			if(elements && elements.length && (typeof($.fn.iosSlider) != 'undefined') ){
+				$.each( elements , function(i, e){
+					var self = $(e),
+						selfContainer = self.closest('.kl-slideshow');
+			
+						self.iosSlider({
+							snapToChildren: true,
+							desktopClickDrag: true,
+							keyboardControls: true,
+							autoSlide: self.data('autoplay') == '1' ? true : false,
+							autoSlideTimer: self.data('trans'),
+							navNextSelector: selfContainer.find('.kl-iosslider-next'),
+							navPrevSelector: selfContainer.find('.kl-iosslider-prev'),
+							navSlideSelector: selfContainer.find('.kl-ios-selectors-block .item'),
+							scrollbar: true,
+							scrollbarContainer: selfContainer.find('.scrollbarContainer'),
+							scrollbarMargin: '0',
+							scrollbarBorderRadius: '4px',
+							onSliderLoaded: function(args){
+								var otherSettings = {
+									hideControls : true,
+									hideCaptions : false
+								};
+								sliderLoaded(args, otherSettings);
+							},
+							onSlideChange: slideChange,
+							infiniteSlider: self.data('infinite')
+						});
+
+					$( window ).on( 'debouncedresize' , function(){
+						if(typeof($.fn.iosSlider) != 'undefined') {
+							self.iosSlider('update');
+						}
+					});
+
+				});
+			}
+		};
+		var ios_slider_p = $('.iosslider-slideshow');
+		if (ios_slider_p){
+			enable_ios_slider( ios_slider_p );
+		}
+
+	});// end of document ready
+
+})(jQuery);
+
+}
+/*
+     FILE ARCHIVED ON 11:49:43 Mar 15, 2021 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 11:22:23 Dec 31, 2022.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 297.167
+  exclusion.robots: 0.085
+  exclusion.robots.policy: 0.077
+  RedisCDXSource: 7.483
+  esindex: 0.009
+  LoadShardBlock: 272.191 (3)
+  PetaboxLoader3.resolve: 231.53 (3)
+  PetaboxLoader3.datanode: 119.704 (4)
+  CDXLines.iter: 14.532 (3)
+  load_resource: 115.7
+*/

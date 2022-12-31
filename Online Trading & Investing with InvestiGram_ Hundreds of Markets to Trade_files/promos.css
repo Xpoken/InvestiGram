@@ -1,0 +1,68 @@
+
+.floatbanners {
+    position: absolute;
+    top: 360px;
+    
+}
+	
+.floatbanners.left{
+	
+	left:0px;
+	}
+.floatbanners.right{
+	
+	right:0px;
+	}
+
+.floatbanners img {
+	width:100% !important;
+}
+
+
+
+@media (max-width: 1470px) {
+	
+.floatbanners{
+		display:none;
+	
+	}
+	
+	
+	
+}
+
+
+
+@media (min-width: 1470px) {
+	
+.ad-banner-landscape {
+		display:none;
+	
+	}
+	
+	
+	
+}
+
+
+/*
+     FILE ARCHIVED ON 06:02:46 Mar 19, 2021 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:57:34 Dec 31, 2022.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 206.933
+  exclusion.robots: 0.066
+  exclusion.robots.policy: 0.059
+  cdx.remote: 0.056
+  esindex: 0.012
+  LoadShardBlock: 160.819 (3)
+  PetaboxLoader3.datanode: 129.536 (4)
+  CDXLines.iter: 14.094 (3)
+  load_resource: 149.811
+  PetaboxLoader3.resolve: 88.587
+*/
